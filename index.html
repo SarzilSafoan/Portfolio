@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Sarzil Safoan - UI/UX Designer</title>
+    <title>Md. Sarzil Safoan | UI/UX Designer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,28 +14,56 @@
         }
         
         :root {
-            --orange-primary: #FF6B35;
-            --orange-secondary: #FF9A3D;
-            --orange-light: #FFD166;
-            --orange-accent: #F15A24;
-            --dark: #1A1A2E;
-            --gray: #4A4A68;
-            --light: #F8F9FA;
-            --transition: all 0.3s ease;
+            --orange-bg: #FF6B00;
+            --orange-dark: #E55A00;
+            --orange-light: #FF8C42;
+            --neon-green: #39FF14;
+            --neon-green-glow: rgba(57, 255, 20, 0.7);
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --gray: #E0E0E0;
+            --dark-gray: #1A1A1A;
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff;
-            color: var(--dark);
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--orange-bg);
+            color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 140, 66, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(229, 90, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 107, 0, 0.15) 0%, transparent 50%);
+            z-index: -1;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
+        }
+        
+        /* Techy Typography */
+        h1, h2, h3, .logo, .tech-font {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .code-font {
+            font-family: 'Share Tech Mono', monospace;
         }
         
         /* Header & Navigation */
@@ -45,10 +73,11 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
             padding: 20px 0;
-            transition: var(--transition);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         
         .header-container {
@@ -59,13 +88,20 @@
         
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--orange-primary);
+            color: var(--white);
             text-decoration: none;
+            position: relative;
         }
         
-        .logo span {
-            color: var(--dark);
+        .logo::after {
+            content: '_';
+            color: var(--neon-green);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         
         nav ul {
@@ -74,132 +110,170 @@
         }
         
         nav ul li {
-            margin-left: 35px;
+            margin-left: 30px;
         }
         
         nav ul li a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--white);
             font-weight: 500;
             font-size: 1.05rem;
             transition: var(--transition);
             position: relative;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        nav ul li a::before {
+            content: '>';
+            color: var(--neon-green);
+            margin-right: 8px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::before {
+            opacity: 1;
         }
         
         nav ul li a:hover {
-            color: var(--orange-primary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--orange-primary);
-            left: 0;
-            bottom: -5px;
-            transition: var(--transition);
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            color: var(--neon-green);
         }
         
         .collaborate-btn {
-            background-color: var(--orange-primary);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
+            background-color: var(--black);
+            color: var(--neon-green);
+            padding: 12px 28px;
+            border-radius: 4px;
             font-weight: 600;
             transition: var(--transition);
-            border: none;
+            border: 1px solid var(--neon-green);
             cursor: pointer;
             font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
         }
         
         .collaborate-btn:hover {
-            background-color: var(--orange-accent);
+            background-color: var(--neon-green);
+            color: var(--black);
+            box-shadow: 0 0 20px var(--neon-green-glow);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
         }
         
         /* Hero Section */
         .hero {
             padding: 180px 0 100px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            min-height: 100vh;
+            position: relative;
         }
         
         .hero-content {
-            max-width: 650px;
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
-            color: var(--dark);
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .hero h1 span {
-            color: var(--orange-primary);
+            color: var(--neon-green);
+            position: relative;
+        }
+        
+        .hero h1 span::after {
+            content: '_';
+            color: var(--neon-green);
+            animation: blink 1s infinite;
+            margin-left: 5px;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--gray);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             max-width: 600px;
-            font-style: italic;
-            position: relative;
+            border-left: 3px solid var(--neon-green);
             padding-left: 20px;
-            border-left: 3px solid var(--orange-primary);
+            font-style: italic;
         }
         
         .download-btn {
             display: inline-block;
-            background-color: transparent;
-            color: var(--orange-primary);
-            padding: 12px 35px;
-            border-radius: 30px;
+            background-color: var(--white);
+            color: var(--black);
+            padding: 14px 40px;
+            border-radius: 4px;
             font-weight: 600;
             transition: var(--transition);
-            border: 2px solid var(--orange-primary);
             text-decoration: none;
-            margin-top: 10px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::before {
+            content: '>> ';
+            color: var(--black);
         }
         
         .download-btn:hover {
-            background-color: var(--orange-primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+            background-color: var(--black);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .download-btn:hover::before {
+            color: var(--neon-green);
         }
         
         /* About Section */
         .section {
             padding: 100px 0;
-        }
-        
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark);
             position: relative;
         }
         
-        .section-title::after {
+        .section::before {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--orange-primary);
-            bottom: -10px;
+            top: 0;
             left: 0;
-            border-radius: 2px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.7);
+            z-index: 1;
+        }
+        
+        .section-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::before {
+            content: '# ';
+            color: var(--neon-green);
         }
         
         .section-subtitle {
@@ -207,6 +281,11 @@
             color: var(--gray);
             margin-bottom: 40px;
             font-weight: 500;
+        }
+        
+        .section-subtitle::before {
+            content: '// ';
+            color: var(--neon-green);
         }
         
         .about-content {
@@ -217,44 +296,59 @@
         }
         
         .about-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--gray);
             margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .about-text p::before {
+            content: '> ';
+            color: var(--neon-green);
+            font-weight: bold;
         }
         
         .about-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 25px;
         }
         
         .detail-box {
-            background-color: #fff;
+            background-color: rgba(26, 26, 26, 0.8);
             padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--orange-primary);
+            border-radius: 8px;
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .detail-box:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
         .detail-box h3 {
-            font-size: 1.2rem;
-            color: var(--dark);
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
         }
         
         .detail-box p {
             font-size: 1rem;
             color: var(--gray);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .detail-box .highlight {
-            color: var(--orange-primary);
+            color: var(--neon-green);
             font-weight: 600;
         }
         
-        /* Education & Experience */
+        /* Timeline */
         .timeline {
             margin-top: 40px;
         }
@@ -262,7 +356,7 @@
         .timeline-item {
             margin-bottom: 40px;
             padding-left: 30px;
-            border-left: 2px solid var(--orange-primary);
+            border-left: 2px solid var(--neon-green);
             position: relative;
         }
         
@@ -272,34 +366,29 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background-color: var(--orange-primary);
+            background-color: var(--neon-green);
             left: -9px;
             top: 0;
+            box-shadow: 0 0 10px var(--neon-green-glow);
         }
         
         .timeline-year {
             font-size: 1.1rem;
-            color: var(--orange-primary);
+            color: var(--neon-green);
             font-weight: 600;
             margin-bottom: 5px;
+            font-family: 'Share Tech Mono', monospace;
         }
         
         .timeline-title {
-            font-size: 1.3rem;
-            color: var(--dark);
+            font-size: 1.4rem;
+            color: var(--white);
             margin-bottom: 8px;
         }
         
         .timeline-subtitle {
             font-size: 1.1rem;
             color: var(--gray);
-        }
-        
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #e0e0e0;
-            margin: 50px 0;
         }
         
         /* Projects Section */
@@ -311,26 +400,29 @@
         }
         
         .project-card {
-            background-color: #fff;
-            border-radius: 15px;
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(57, 255, 20, 0.2);
             transition: var(--transition);
+            position: relative;
         }
         
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--neon-green);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
         .project-image {
             height: 220px;
-            background-color: #f5f5f5;
+            background-color: rgba(10, 10, 10, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--orange-primary);
-            font-size: 3rem;
+            color: var(--neon-green);
+            font-size: 3.5rem;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
         }
         
         .project-content {
@@ -338,27 +430,36 @@
         }
         
         .project-title {
-            font-size: 1.5rem;
-            color: var(--dark);
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
         
         .project-tag {
             display: inline-block;
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--orange-primary);
-            padding: 5px 15px;
-            border-radius: 20px;
+            background-color: rgba(57, 255, 20, 0.1);
+            color: var(--neon-green);
+            padding: 6px 18px;
+            border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 500;
-            margin-top: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            border: 1px solid rgba(57, 255, 20, 0.3);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: var(--black);
             color: white;
             padding: 60px 0 30px;
+            border-top: 1px solid rgba(57, 255, 20, 0.3);
         }
         
         .footer-content {
@@ -369,13 +470,14 @@
         }
         
         .footer-logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: white;
+            font-family: 'Orbitron', sans-serif;
         }
         
         .footer-logo span {
-            color: var(--orange-primary);
+            color: var(--neon-green);
         }
         
         .footer-contact {
@@ -386,12 +488,16 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .contact-icon {
-            color: var(--orange-primary);
-            font-size: 1.2rem;
+            color: var(--neon-green);
+            font-size: 1.3rem;
+        }
+        
+        .contact-text {
+            font-family: 'Share Tech Mono', monospace;
         }
         
         .copyright {
@@ -400,12 +506,13 @@
             font-size: 0.95rem;
             padding-top: 30px;
             border-top: 1px solid #333;
+            font-family: 'Share Tech Mono', monospace;
         }
         
         /* Responsive */
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
             .about-content {
@@ -448,7 +555,7 @@
             }
             
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
             
             .about-details {
@@ -460,6 +567,11 @@
                 align-items: flex-start;
                 gap: 30px;
             }
+            
+            .footer-contact {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -468,11 +580,11 @@
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .section-subtitle {
@@ -485,15 +597,15 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Sarzil<span>.</span></a>
+            <a href="#" class="logo tech-font">SARZIL_SAFOAN</a>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><button class="collaborate-btn">Let's Collaborate</button></li>
+                    <li><a href="#home" class="code-font">Home</a></li>
+                    <li><a href="#about" class="code-font">About</a></li>
+                    <li><a href="#projects" class="code-font">Projects</a></li>
+                    <li><a href="#services" class="code-font">Services</a></li>
+                    <li><a href="#contact" class="code-font">Contact</a></li>
+                    <li><button class="collaborate-btn">LET'S COLLABORATE</button></li>
                 </ul>
             </nav>
         </div>
@@ -503,76 +615,74 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>I am Sarzil Safoan <span>– UI/UX Designer.</span></h1>
-                <p>"A passionate UI/UX designer with a knack for creating clean and functional designs."</p>
-                <a href="#" class="download-btn">Download Resume</a>
+                <h1 class="tech-font">I AM SARZIL SAFOAN <span>UI/UX DESIGNER</span></h1>
+                <p class="code-font">"A passionate UI/UX designer with a knack for creating clean and functional designs."</p>
+                <a href="#" class="download-btn code-font">DOWNLOAD RESUME</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">"Designing Interfaces That Users Love"</p>
+        <div class="container section-content">
+            <h2 class="section-title tech-font">ABOUT_ME</h2>
+            <p class="section-subtitle code-font">"Designing Interfaces That Users Love"</p>
             
             <div class="about-content">
                 <div class="about-text">
                     <p>"Hi, I'm Sarzil Safoan – a passionate UI/UX Designer currently studying Computer Science & Engineering at North South University. My goal is to blend aesthetics with functionality to deliver designs that solve problems and resonate with users."</p>
                     
                     <div class="timeline">
-                        <h3 style="margin-bottom: 20px; color: var(--dark); font-size: 1.5rem;">Education</h3>
+                        <h3 style="margin-bottom: 20px; color: var(--white); font-size: 1.5rem;" class="tech-font">EDUCATION</h3>
                         
                         <div class="timeline-item">
-                            <div class="timeline-year">2021 – Present</div>
-                            <h4 class="timeline-title">B.Sc. in Computer Science & Engineering</h4>
-                            <p class="timeline-subtitle">North South University</p>
+                            <div class="timeline-year code-font">2021 – PRESENT</div>
+                            <h4 class="timeline-title tech-font">B.SC. IN COMPUTER SCIENCE & ENGINEERING</h4>
+                            <p class="timeline-subtitle code-font">North South University</p>
                         </div>
                         
                         <div class="timeline-item">
-                            <div class="timeline-year">2018 – 2020</div>
-                            <h4 class="timeline-title">Higher Secondary Certificate</h4>
-                            <p class="timeline-subtitle">Science Group</p>
+                            <div class="timeline-year code-font">2018 – 2020</div>
+                            <h4 class="timeline-title tech-font">HIGHER SECONDARY CERTIFICATE</h4>
+                            <p class="timeline-subtitle code-font">Science Group</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-details">
                     <div class="detail-box">
-                        <h3>Experience</h3>
-                        <p><span class="highlight">2023 – Present:</span> UI/UX Designer</p>
-                        <p>Freelance Projects</p>
+                        <h3 class="tech-font">EXPERIENCE</h3>
+                        <p><span class="highlight">2023 – PRESENT:</span> UI/UX Designer</p>
+                        <p class="code-font">Freelance Projects</p>
                     </div>
                     
                     <div class="detail-box">
-                        <h3>Personal Info</h3>
-                        <p><span class="highlight">Born In:</span> Bangladesh</p>
-                        <p><span class="highlight">Experience:</span> 2+ Years</p>
+                        <h3 class="tech-font">PERSONAL INFO</h3>
+                        <p><span class="highlight">BORN IN:</span> Bangladesh</p>
+                        <p><span class="highlight">EXPERIENCE:</span> 2+ Years</p>
                     </div>
                     
                     <div class="detail-box">
-                        <h3>Contact</h3>
-                        <p><span class="highlight">Phone:</span> 0160361153</p>
-                        <p><span class="highlight">Email:</span> sarzil12345@gmail.com</p>
+                        <h3 class="tech-font">CONTACT</h3>
+                        <p><span class="highlight">PHONE:</span> 0160361153</p>
+                        <p><span class="highlight">EMAIL:</span> sarzil12345@gmail.com</p>
                     </div>
                     
                     <div class="detail-box">
-                        <h3>University</h3>
-                        <p><span class="highlight">Current:</span> North South University</p>
-                        <p><span class="highlight">Department:</span> CSE</p>
+                        <h3 class="tech-font">UNIVERSITY</h3>
+                        <p><span class="highlight">CURRENT:</span> North South University</p>
+                        <p><span class="highlight">DEPARTMENT:</span> CSE</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <hr>
-
     <!-- Projects Section -->
     <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <p class="section-subtitle">"Websites I've Designed & Developed"</p>
+        <div class="container section-content">
+            <h2 class="section-title tech-font">MY_PROJECTS</h2>
+            <p class="section-subtitle code-font">"Websites I've Designed & Developed"</p>
             
             <div class="projects-grid">
                 <!-- Project 1 -->
@@ -581,9 +691,9 @@
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">JMGBD Official Website</h3>
-                        <p>Professional corporate website with clean design, company portfolio, and service information.</p>
-                        <div class="project-tag">Corporate Design</div>
+                        <h3 class="project-title">JMGBD OFFICIAL WEBSITE</h3>
+                        <p class="project-desc">Professional corporate website with clean design, company portfolio, and service information.</p>
+                        <div class="project-tag">CORPORATE DESIGN</div>
                     </div>
                 </div>
                 
@@ -593,9 +703,9 @@
                         <i class="fas fa-shopping-bag"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Randmdenim E-commerce</h3>
-                        <p>Modern e-commerce platform for a denim brand with product filters, cart, and secure checkout.</p>
-                        <div class="project-tag">E-commerce UI</div>
+                        <h3 class="project-title">RANDMDENIM E-COMMERCE</h3>
+                        <p class="project-desc">Modern e-commerce platform for a denim brand with product filters, cart, and secure checkout.</p>
+                        <div class="project-tag">E-COMMERCE UI</div>
                     </div>
                 </div>
                 
@@ -605,9 +715,9 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Conection Platform</h3>
-                        <p>Social networking interface for professionals with profile management and connection features.</p>
-                        <div class="project-tag">Social Platform</div>
+                        <h3 class="project-title">CONECTION PLATFORM</h3>
+                        <p class="project-desc">Social networking interface for professionals with profile management and connection features.</p>
+                        <div class="project-tag">SOCIAL PLATFORM</div>
                     </div>
                 </div>
                 
@@ -617,9 +727,9 @@
                         <i class="fas fa-fish"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Ocean Fresh</h3>
-                        <p>Business website for seafood supplier with product showcase, ordering system, and delivery info.</p>
-                        <div class="project-tag">Business Website</div>
+                        <h3 class="project-title">OCEAN FRESH</h3>
+                        <p class="project-desc">Business website for seafood supplier with product showcase, ordering system, and delivery info.</p>
+                        <div class="project-tag">BUSINESS WEBSITE</div>
                     </div>
                 </div>
             </div>
@@ -630,21 +740,21 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Sarzil<span>.</span></div>
+                <div class="footer-logo">SARZIL<span>_</span>SAFOAN</div>
                 <div class="footer-contact">
                     <div class="contact-item">
                         <i class="fas fa-phone contact-icon"></i>
-                        <span>0160361153</span>
+                        <span class="contact-text code-font">0160361153</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope contact-icon"></i>
-                        <span>sarzil12345@gmail.com</span>
+                        <span class="contact-text code-font">sarzil12345@gmail.com</span>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2023 Sarzil Safoan. All Rights Reserved.</p>
-                <p style="margin-top: 10px;">Computer Science & Engineering Student at North South University</p>
+                <p>© 2023 SARZIL SAFOAN. ALL RIGHTS RESERVED.</p>
+                <p style="margin-top: 10px;" class="code-font">COMPUTER SCIENCE & ENGINEERING STUDENT AT NORTH SOUTH UNIVERSITY</p>
             </div>
         </div>
     </footer>
@@ -673,22 +783,41 @@
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.style.padding = '15px 0';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
             } else {
                 header.style.padding = '20px 0';
-                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
             }
         });
         
         // "Let's Collaborate" button click
         document.querySelector('.collaborate-btn').addEventListener('click', function() {
-            alert("Let's work together! You can contact me at sarzil12345@gmail.com or call 0160361153");
+            alert("LET'S WORK TOGETHER! YOU CAN CONTACT ME AT SARZIL12345@GMAIL.COM OR CALL 0160361153");
         });
         
         // Download Resume button
         document.querySelector('.download-btn').addEventListener('click', function(e) {
             e.preventDefault();
-            alert("Resume download would start here. For now, please contact me directly for my resume.");
+            alert("RESUME DOWNLOAD WOULD START HERE. FOR NOW, PLEASE CONTACT ME DIRECTLY FOR MY RESUME.");
+        });
+        
+        // Add techy typing effect to hero title
+        const heroTitle = document.querySelector('.hero h1 span');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = "";
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        };
+        
+        // Start typing effect after page loads
+        window.addEventListener('load', function() {
+            setTimeout(typeWriter, 500);
         });
     </script>
 </body>
