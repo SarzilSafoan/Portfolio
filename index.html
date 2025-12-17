@@ -1,121 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md. Sarzil Safoan | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #007bff, #00c6ff);
-      color: white;
-    }
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 20px;
-    }
-    .section-title {
-      text-align: center;
-      margin: 50px 0 30px;
-      font-weight: bold;
-      font-size: 2rem;
-      color: #007bff;
-    }
-    .card {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #007bff;
-      color: white;
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Sarzil Safoan | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --accent: #0ea5e9;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Section */
+        .header {
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 48px;
+        }
+        
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .university {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .contact-icon {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        /* Works Section */
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 50px 0 40px;
+            color: var(--secondary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            width: 100%;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 3.5rem;
+        }
+        
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .address {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-top: 15px;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 1.3rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .project-card {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <img src="your-image.jpg" alt="Md. Sarzil Safoan">
-    <h1>Md. Sarzil Safoan</h1>
-    <p>Student, CSE Department, North South University</p>
-    <p>📞 0160361153 | ✉️ sarzil12345@gmail.com</p>
-    <p>📍 Your Address Here</p>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="container">
-    <h2 class="section-title">About Me</h2>
-    <p class="text-center">
-      I am passionate about web design and development, creating modern, responsive websites with clean layouts and interactive features. 
-      This portfolio showcases some of my professional projects.
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="container">
-    <h2 class="section-title">My Works</h2>
-    <div class="row g-4">
-      <!-- Card 1 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">JMGBD</h5>
-            <p class="card-text">Official website designed and developed for JMGBD garments.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">Randmdenim</h5>
-            <p class="card-text">Professional denim brand website showcasing products and branding.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">Conection</h5>
-            <p class="card-text">Corporate website for Conection.net with textile-inspired design.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <div class="card-body text-center">
-            <h5 class="card-title">Ocean Fresh</h5>
-            <p class="card-text">Clean and modern website for Ocean Fresh seafood brand.</p>
-          </div>
-        </div>
-      </div>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header fade-in">
+            <div class="profile-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1 class="name">Md. Sarzil Safoan</h1>
+            <p class="title">Computer Science & Engineering Student</p>
+            <p class="university">North South University</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <span>0160361153</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>sarzil12345@gmail.com</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Works Section -->
+        <section>
+            <h2 class="section-title fade-in">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #e0f2fe;">
+                        <i class="fas fa-globe" style="color: #0369a1;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">JMGBD Official Website</h3>
+                        <p class="project-desc">A comprehensive official website for JMGBD featuring company information, services, and client portal. Built with modern web technologies for optimal user experience.</p>
+                        <div class="project-tag">Web Development</div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #fef3c7;">
+                        <i class="fas fa-tshirt" style="color: #d97706;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Randmdenim E-commerce</h3>
+                        <p class="project-desc">A fully responsive e-commerce platform for a denim clothing brand. Features include product catalog, shopping cart, user authentication, and secure payment processing.</p>
+                        <div class="project-tag">E-commerce</div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #dcfce7;">
+                        <i class="fas fa-plug" style="color: #15803d;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Conection Platform</h3>
+                        <p class="project-desc">A networking platform designed to connect professionals in the tech industry. Includes user profiles, messaging system, and event management features.</p>
+                        <div class="project-tag">Social Platform</div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-color: #e0e7ff;">
+                        <i class="fas fa-fish" style="color: #4f46e5;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Ocean Fresh</h3>
+                        <p class="project-desc">A business website for a seafood supplier showcasing their products, delivery services, and company values. Focus on clean design and intuitive navigation.</p>
+                        <div class="project-tag">Business Website</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="address">[Your address will appear here. You can edit this section with your full address.]</p>
+            <p class="copyright">&copy; 2023 Md. Sarzil Safoan. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Md. Sarzil Safoan | Portfolio</p>
-  </footer>
-
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const appearOnScroll = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                appearOnScroll.observe(el);
+            });
+            
+            // Add subtle hover effect to contact items
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
