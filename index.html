@@ -220,15 +220,15 @@
             align-items: center;
         }
         
-        .profile-img {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--neon-green);
-            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
-            margin-bottom: 20px;
-        }
+.profile-img {
+    width: 260px;          /* Slightly narrower */
+    height: 320px;         /* Tall rectangle */
+    object-fit: cover;     /* Keeps image proportion */
+    border: 3px solid var(--neon-green);
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+    margin-bottom: 20px;
+    border-radius: 8px;    /* Subtle tech-friendly rounding */
+}
         
         .signature {
             width: 200px;
@@ -885,6 +885,26 @@
                 display: none !important;
             }
         }
+        @media (max-width: 1024px) {
+    .profile-img {
+        width: 220px;
+        height: 270px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-img {
+        width: 200px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-img {
+        width: 180px;
+        height: 220px;
+    }
+}
     </style>
 </head>
 <body>
